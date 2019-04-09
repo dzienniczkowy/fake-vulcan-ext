@@ -9,16 +9,15 @@ function onRequest(request: { requestId: string, url: string }) {
     };
 
     filter.onstop = async () => {
-        let response = JSON.parse(responseString);
-
         const endpoint = endpoints.find(endpoint => request.url.endsWith(endpoint));
 
         if (endpoint) {
             const r = await fetch("https://uonetplus-uczen.fakelog.cf/Default/123456/" + endpoint);
-            response = await r.json();
+            filter.write(encodeResponse(await r.json()));
+        } else {
+            filter.write(encodeResponse(responseString));
         }
 
-        filter.write(encodeResponse(JSON.stringify(response)));
         filter.disconnect();
     };
 }
