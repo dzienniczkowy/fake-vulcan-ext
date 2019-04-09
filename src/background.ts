@@ -1,25 +1,19 @@
-import {decodeResponse, encodeResponse, endpoints} from "./utils";
+import {encodeResponse, endpoints} from "./utils";
 
 function onRequest(request: { requestId: string, url: string }) {
-    const filter = browser.webRequest.filterResponseData(request.requestId);
-    let responseString = "";
+    const endpoint = endpoints.find(endpoint => request.url.endsWith(endpoint));
 
-    filter.ondata = (event) => {
-        responseString += decodeResponse(event.data);
-    };
+    if (endpoint) {
+        const filter = browser.webRequest.filterResponseData(request.requestId);
 
-    filter.onstop = async () => {
-        const endpoint = endpoints.find(endpoint => request.url.endsWith(endpoint));
-
-        if (endpoint) {
+        filter.onstop = async () => {
             const r = await fetch("https://uonetplus-uczen.fakelog.cf/Default/123456/" + endpoint);
-            filter.write(encodeResponse(await r.json()));
-        } else {
-            filter.write(encodeResponse(responseString));
-        }
+            const j = await r.json();
+            filter.write(encodeResponse(JSON.stringify(j)));
+            filter.disconnect();
+        };
+    }
 
-        filter.disconnect();
-    };
 }
 
 browser.webRequest.onBeforeRequest.addListener(

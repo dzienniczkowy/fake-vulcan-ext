@@ -38,10 +38,6 @@ export const endpoints = [
     "ZgloszoneNieobecnosci.mvc/Post"
 ];
 
-export function decodeResponse(input: BufferSource) {
-    return (new TextDecoder("utf-8")).decode(input, {stream: true});
-}
-
 export function encodeResponse(input: string) {
     return (new TextEncoder()).encode(input);
 }
