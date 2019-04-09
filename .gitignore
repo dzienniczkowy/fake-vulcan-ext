@@ -62,3 +62,6 @@ typings/
 
 # IntelliJ IDEA
 /.idea
+
+# Addon dist
+/addon/dist
