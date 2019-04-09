@@ -1,0 +1,11 @@
+{
+  "extensionName": {
+    "message": "Fake Vulcan Register",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Replaces user data on a Vulcan based school register website with fake entries.",
+    "description": "Description of the extension."
+  }
+}

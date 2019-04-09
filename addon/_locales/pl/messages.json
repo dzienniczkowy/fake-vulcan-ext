@@ -1,0 +1,11 @@
+{
+  "extensionName": {
+    "message": "Fałszywy Dziennik Vulcan",
+    "description": "Nazwa rozszerzenia."
+  },
+
+  "extensionDescription": {
+    "message": "Podmienia dane ucznia na stronie dziennika szkolnego Vulcan na fałszywe.",
+    "description": "Opis rozszerzenia."
+  }
+}

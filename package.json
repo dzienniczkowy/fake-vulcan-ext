@@ -1,0 +1,31 @@
+{
+  "name": "fake-vulcan-ext",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "development": "webpack --mode development",
+    "dev": "npm run development",
+    "production": "webpack --mode production",
+    "prod": "npm run production",
+    "watch": "npm run development -- --watch",
+    "deploy": "npm run production && web-ext build -s addon/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wulkanowy/fake-vulcan-ext.git"
+  },
+  "author": "Wulkanowy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wulkanowy/fake-vulcan-ext/issues"
+  },
+  "homepage": "https://github.com/wulkanowy/fake-vulcan-ext#readme",
+  "devDependencies": {
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.2",
+    "web-ext": "^3.0.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
