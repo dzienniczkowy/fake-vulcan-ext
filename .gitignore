@@ -65,3 +65,4 @@ typings/
 
 # Addon dist
 /addon/dist
+web-ext-artifacts
